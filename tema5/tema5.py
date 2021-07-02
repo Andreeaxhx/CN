@@ -83,7 +83,7 @@ def matrix_array(A, n):
     c = 1/math.sqrt(1+t**2)
     s = t/math.sqrt(1+t**2)
 
-    R = Rpq(c, c, p, q, n)
+    R = Rpq(c, s, p, q, n)
     print("R: ", R)
 
 
@@ -124,7 +124,7 @@ def matrix_array(A, n):
         c = 1 / math.sqrt(1 + t ** 2)
         s = t / math.sqrt(1 + t ** 2)
 
-        R = Rpq(c, c, p, q, n)
+        R = Rpq(c, s, p, q, n)
         print("R: ", R)
 
         np.set_printoptions(suppress=True)
@@ -145,7 +145,6 @@ def matrix_array_cholesky(A, epsilon):
         print("iteratia -", k)
         A_aux = A.copy()
         L = ex1(A_aux, eps=10 ** -1)
-
         LT = np.transpose(L)
 
         AUX = np.array(LT).dot(np.array(L))
@@ -231,18 +230,19 @@ A = np.array([[0, 0, 1], [0, 0, 1], [1, 1, 1]])
 
 n, A = data_file()
 epsilon = 10 ** -7
-Afinal = matrix_array(A, n)
-print("Afinal", Afinal)
+# Afinal = matrix_array(A, n)
+# print("Afinal", Afinal)
 
 # -------------------------------------------------BULINA A DOUA---------------------------------------------------------
 # n, A = data_file()
-# print("A: ", A)
-# matrix_array_cholesky(A, epsilon)
+print("A: ", A)
+matrix_array_cholesky(A, epsilon)
 
 # -------------------------------------------------ULTIMA BULINA---------------------------------------------------------
 
 # A = np.array([[1,2], [3,4], [5,6]])
 # A = np.array([[0.1, 0.2], [0.3, 0.4], [0.5, 0.6], [0.7, 0.8]])
+# A = np.array([[1, 0, 3], [0, 4, 2], [3, 2, 11]])
 # U, S, V = np.linalg.svd(A)
 # print("A: \n", A)
 # print("U: \n", U)

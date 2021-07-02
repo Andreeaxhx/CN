@@ -88,7 +88,7 @@ def norma(a, b, c, x, f):
     return distance, dist
 
 
-a, b, c, f, p, q = memorare_matrice_a("a1", "f1")
+a, b, c, f, p, q = memorare_matrice_a("a2", "f2")
 epsilon = 10 ** -7
 
 x = gauss_seidel(a, b, c, f, epsilon)
